@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+
+<div>
+    <h1>Home page</h1>
+    <p><%= homePageContent %></p>
+</div>
+
+<div class="employees">
+
+    <% employees.map(employee => { %>
+
+    <div class="employee-data">
+        <h4 class="row">
+            <a class="not-change col-lg-6"
+                href=<%= "/employees/" + employee.name.replace(/\s/g, '') + employee.surname.replace(/\s/g, '') + employee.fathername.replace(/\s/g, '') %>>
+                <%= employee.surname + ' ' + employee.name + ' ' + employee.fathername %>
+            </a>
+            <span class="col-lg-3"><%= employee.workfield %></span>
+        </h4>
+    </div>
+
+    <% }) %>
+
+</div>
+
+
+<%- include('partials/footer.ejs') %>

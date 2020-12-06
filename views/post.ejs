@@ -1,0 +1,43 @@
+<%- include('partials/header.ejs') %>
+
+
+<form action="/employees/<%= fullname %>" method="POST">
+
+    <h1 class="employee-name"><%= employee.name + ' ' + employee.surname + ' ' + employee.fathername %> -
+        <%= employee.workfield %></h1>
+    <input class="form-control" type="hidden" name="id" value="<%= employee._id %>">
+
+
+    <div class="form-group" id="compose">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" required>
+
+        <label for="description">Description</label>
+        <textarea class="form-control offense-control" name="description" id="" cols="2" rows="10"></textarea>
+    </div>
+
+    <button class="btn" type="submit">Publish</button>
+
+</form>
+
+
+<div>
+    <% if (offenses.length === 0) { %>
+
+        <h3>No-offense</h3>
+
+    <% } else { %>
+
+        <% offenses.map(offense => { %>
+
+            <h4><% offense.title %></h4>
+
+        <% }) %>
+
+    <% } %>
+</div>
+
+
+
+
+<%- include('partials/footer.ejs') %>
